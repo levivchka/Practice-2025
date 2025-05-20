@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <title>Журнал проекта | Повышение экспортного потенциала</title>
+    <style>
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #d92633;
+            --accent-color: #3e3d3d;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --text-color: #020202;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            margin: 0 auto;
+            background-color: white;
+            
+        }
+        
+        header {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 5px;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 3rem;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            font-size: 3rem;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        
+        h3 {
+            color: var(--accent-color);
+        }
+
+         nav {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      z-index: 3;
+    }
+
+     nav a {
+      color:  #ff5252;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      background: rgba(197, 44, 69, 0.1);
+      padding: 8px 16px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+        
+        .project-leaders {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 20px 0;
+        }
+        
+        .leader {
+            background-color: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 5px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .relevance-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .card {
+            background-color: var(--light-color);
+            border-left: 4px solid var(--secondary-color);
+            padding: 20px;
+            border-radius: 0 5px 5px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .card h4 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        
+        .problems-list {
+            background-color: var(--light-color);
+            padding: 20px;
+            border-radius: 5px;
+        }
+        
+        .problems-list ul {
+            columns: 2;
+            column-gap: 30px;
+        }
+        
+        .tasks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .task-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            position: relative;
+        }
+        
+        .task-card .deadline {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+        }
+        
+        .results {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .result-item {
+            background-color: var(--light-color);
+            padding: 15px;
+            border-radius: 5px;
+            border-top: 3px solid var(--secondary-color);
+        }
+        
+        .site-footer {
+  background-color: #111;
+  color: #ccc;
+  padding: 60px 20px;
+  font-size: 0.95rem;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.footer-column {
+  flex: 1 1 250px;
+  min-width: 250px;
+}
+
+.footer-column h4 {
+  color: white;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.footer-column p,
+.footer-column li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.project {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--light-color);
+}
+
+.footer-column ul li a:hover {
+  color: #ff5252;
+}
+        
+        
+        @media (max-width: 768px) {
+            .problems-list ul {
+                columns: 1;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h2 class="project">ЖУРНАЛ ПРОЕКТА</h2>
+            <div class="project-leaders">
+                <div class="leader">
+                    <strong>Руководитель проекта</strong><br>
+                    Н. Н. Фролова
+                </div>
+                <div class="leader">
+                    <strong>Лидер проекта</strong><br>
+                    А. А. Газарян
+                </div>
+            </div>
+             <nav>
+      <a href="index.html">Главная</a>
+      <a href="about.html">О проекте</a>
+      <a href="team.html">Участники</a>
+      <a href="journal.html">Журнал</a>
+    </nav>
+        </header>
+        
+        <div class="section">
+            <h2>Актуальность проекта</h2>
+            <div class="relevance-cards">
+                <div class="card">
+                    <h4>Глобализация образования</h4>
+                    <p>Количество иностранных студентов в мире превышает 6 миллионов. Университеты становятся международными площадками, что требует создания комфортной среды для всех обучающихся.</p>
+                </div>
+                <div class="card">
+                    <h4>Конкурентоспособность вуза</h4>
+                    <p>Успешная интеграция иностранных студентов повышает репутацию университета на международной арене. Это привлекает новых абитуриентов и укрепляет позиции в мировых рейтингах.</p>
+                </div>
+                <div class="card">
+                    <h4>Культурный обмен</h4>
+                    <p>Иностранные студенты привносят в университетскую среду новые культурные традиции и взгляды. Это способствует развитию межкультурной коммуникации и формированию толерантного общества.</p>
+                </div>
+                <div class="card">
+                    <h4>Социальная адаптация</h4>
+                    <p>Многие иностранные студенты сталкиваются с трудностями: языковой барьер, культурный шок, отсутствие социальных связей. Проект помогает им быстрее адаптироваться.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Проблематика проекта</h2>
+            <div class="problems-list">
+                <ul>
+                    <li>Языковой барьер - трудности в общении и обучении</li>
+                    <li>Культурный шок и социальная изоляция</li>
+                    <li>Недостаток инфраструктуры и поддержки</li>
+                    <li>Правовые и бытовые сложности</li>
+                    <li>Отсутствие программ адаптации</li>
+                    <li>Проблемы с оформлением документов и поиском жилья</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Цели и задачи проекта</h2>
+            <div class="tasks-grid">
+                <div class="task-card">
+                    <span class="deadline">до 17.03</span>
+                    <h3>Ролик для фестиваля</h3>
+                    <p>Создание видеоролика о фестивале "Душа моя - Россия"</p>
+                </div>
+                <div class="task-card">
+                    <span class="deadline">01.04</span>
+                    <h3>Сценарий вечера знакомств</h3>
+                    <p>Разработка увлекательного сценария для взаимодействия</p>
+                </div>
+                <div class="task-card">
+                    <span class="deadline">01.04</span>
+                    <h3>Игра "Факты о России"</h3>
+                    <p>Подготовка игры на русском и английском языках</p>
+                </div>
+                <div class="task-card">
+                    <span class="deadline">07.05</span>
+                    <h3>Материал ко Дню Победы</h3>
+                    <p>Разработка материалов для мероприятия</p>
+                </div>
+                <div class="task-card">
+                    <span class="deadline">06.03</span>
+                    <h3>Сценарий к 8 марта</h3>
+                    <p>Создание сценария для празднования</p>
+                </div>
+                <div class="task-card">
+                    <span class="deadline">30.06</span>
+                    <h3>Экскурсии по Москве</h3>
+                    <p>Разработка и организация экскурсионных программ</p>
+                </div>
+                <div class="task-card">
+                    <span class="deadline">19.05</span>
+                    <h3>Грантовая поддержка</h3>
+                    <p>Исследование возможностей финансирования</p>
+                </div>
+                <div class="task-card">
+                    <span class="deadline">01.04</span>
+                    <h3>Листовка Подготовительного отделения</h3>
+                    <p>Разработка раздаточного материала</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Промежуточные результаты</h2>
+            <div class="results">
+                <div class="result-item">
+                    <h3>Видеоролик для фестиваля</h3>
+                    <p>Разработан сценарий и создан видеоролик при помощи специалистов другого проекта.</p>
+                </div>
+                <div class="result-item">
+                    <h3>Вечер знакомств</h3>
+                    <p>Разработан сценарий игры и презентация для визуального сопровождения.</p>
+                </div>
+                <div class="result-item">
+                    <h3>Игра "Факты о России"</h3>
+                    <p>Создан сценарий игры и презентация для визуального сопровождения.</p>
+                </div>
+                <div class="result-item">
+                    <h3>День Победы</h3>
+                    <p>Разработан информационный материал и квиз по данной теме.</p>
+                </div>
+                <div class="result-item">
+                    <h3>8 Марта</h3>
+                    <p>Разработан сценарий игры и пример интерактивной игры.</p>
+                </div>
+                <div class="result-item">
+                    <h3>Грантовая поддержка</h3>
+                    <p>Проведен поиск информации о фондах грантовой поддержки.</p>
+                </div>
+                <div class="result-item">
+                    <h3>Экскурсии по Москве</h3>
+                    <p>Разработан информационный материал в трех вариациях.</p>
+                </div>
+                <div class="result-item">
+                    <h3>Листовка</h3>
+                    <p>Разработана листовка для продвижения программ Подготовительного отделения.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>Планы на следующий семестр</h2>
+            <div class="card">
+                <ul>
+                    <li>Провести тестирование разработанных игр с участием иностранных студентов</li>
+                    <li>Разработать информационный материал, организовать и провести экскурсии по Москве</li>
+                    <li>Подготовить отчетный материал по Фондам грантовой поддержки</li>
+                </ul>
+            </div>
+        </div>
+        
+        <footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-column">
+      <h4>О проекте</h4>
+      <p>Наша миссия — способствовать развитию международных связей, укреплять репутацию российского образования и культуры на мировой арене, в том числе через участие иностранных студентов.</p>
+    </div>
+
+    <div class="footer-column">
+      <h4>Навигация</h4>
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="about.html">О проекте</a></li>
+        <li><a href="team.html">Участники</a></li>
+        <li><a href="journal.html">Журнал</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Контакты</h4>
+      <p>Email: info@exportmoscow.ru</p>
+      <p>Телефон: +7 (495) 123-45-67</p>
+      <p>© 2025 Проектная деятельность</p>
+    </div>
+  </div>
+</footer>
+    </div>
+</body>
+</html>

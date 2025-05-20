@@ -1,0 +1,215 @@
+/* Сброс */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  background-color: #000;
+}
+
+nav {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      z-index: 3;
+    }
+
+    nav a {
+      color: white;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 8px 16px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.3);
+    }
+/* Видеофон */
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Затемнение поверх видео */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+/* Основной контейнер */
+#festival {
+  position: relative;
+  padding: 120px 20px 60px;
+  overflow: hidden;
+  text-align: center;
+}
+
+#festival .container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Заголовок и подзаголовок */
+#festival h2 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+#festival p {
+  font-size: 1.2rem;
+  color: #dddddd;
+  max-width: 800px;
+  margin: 0 auto 50px;
+}
+
+/* Карточки */
+.festival-cards {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin: 60px auto;
+  max-width: 900px;
+}
+
+.festival-card {
+  background-color: #1f1f1f;
+  color: white;
+  padding: 30px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.festival-card:hover {
+  transform: scale(1.03);
+}
+
+.festival-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  color: #ff5252;
+}
+
+.festival-card p {
+  margin-bottom: 15px;
+  color: #ccc;
+}
+
+.festival-card ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  text-align: left;
+  color: #bbb;
+}
+
+.festival-card li {
+  margin-bottom: 8px;
+}
+  .btn:hover {
+      background-color: #b61f29;
+    }
+
+    .site-footer {
+  background-color: #111;
+  color: #ccc;
+  padding: 60px 20px;
+  font-size: 0.95rem;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.footer-column {
+  flex: 1 1 250px;
+  min-width: 250px;
+}
+
+.footer-column h4 {
+  color: white;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.footer-column p,
+.footer-column li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+  color: #ff5252;
+}
+/* Нижний блок с датами и кнопкой */
+.festival-footer {
+  margin-top: 40px;
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.festival-footer a {
+      background-color: #d92633;
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+.festival-footer a:hover {
+  background-color: #b71c1c;
+}
+
+/* Адаптация */
+@media (max-width: 768px) {
+  .festival-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #festival h2 {
+    font-size: 2rem;
+  }
+
+  #festival p {
+    font-size: 1rem;
+  }
+}

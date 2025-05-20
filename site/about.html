@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <title>О проекте - Московский Политех</title>
+  <link rel="stylesheet" href="/site/css/about.css" />
+</head>
+<body>
+    <header>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="about.html">О проекте</a>
+      <a href="team.html">Участники</a>
+      <a href="journal.html">Журнал</a>
+    </nav>
+  </header>
+
+<!-- Раздел "О проекте" -->
+<section id="about-project">
+  <h2 class="project"> O ПРОЕКТЕ</h2>
+  <div>
+    <p>
+      Этот проект создан для развития международного сотрудничества и привлечения иностранных студентов в Московский Политех. Мы разрабатываем инновационные решения — игровые сценарии, информационные материалы и экскурсионные программы — чтобы помочь иностранным студентам быстрее адаптироваться к обучению и жизни в России.
+    </p>
+    <p>
+      Цель проекта — повысить интерес к образовательным возможностям Московского Политеха и упростить процесс интеграции иностранных студентов. Регулярные встречи, брейнштормы и рабочие сессии помогают реализовать идеи и получать ценную обратную связь.
+    </p>
+    <p>
+      В результате команда проводит тестирование сценариев, расширяет международное сотрудничество и делится достижениями на конференциях и мероприятиях. Такой подход позволяет сделать обучение и интеграцию более комфортной и эффективной для иностранных студентов.
+    </p>
+  </div>
+   <!-- PDF-презентация -->
+<div id="pdf-viewer">
+  <canvas id="pdf-canvas"></canvas>
+  <div class="pdf-navigation">
+    <button id="btn-prev-page">← Назад</button>
+    <button id="btn-next-page">Вперёд →</button>
+  </div>
+</div>
+
+</section>
+
+<!-- Раздел "Фото и достижения" -->
+<section id="images">
+  <h2>НАША БРОШЮРА </h2>
+  <div>
+    <img src="/site/img/1сторона.jpg" alt="1" />
+    <img src="/site/img/2сторона.png" alt="2" />
+  </div>
+</section>
+
+<!-- Раздел "План действий" -->
+<section id="plans">
+  <h2>ПЛАН</h2>
+  <ol>
+    <li><strong>Разработка сценариев и материалов</strong> — создание интерактивных игр и информационных ресурсов.</li>
+    <li><strong>Проведение тестирования</strong> — внедрение сценариев с иностранными студентами, сбор обратной связи.</li>
+    <li><strong>Презентация результатов</strong> — участие в конференциях и мероприятиях, привлечение новых участников.</li>
+    <li><strong>Расширение сотрудничества</strong> — поиск новых партнеров и грантов для развития проекта.</li>
+  </ol>
+</section>
+<!-- Раздел "Контакты" -->
+<section id="contacts">
+  <h2>СВЯЗАТЬСЯ С НАМИ</h2>
+  <p>Если у вас есть вопросы или желание присоединиться к проекту — напишите нам:</p>
+  <p style="font-weight: bold;">email: project@politech.ru | телефон: +7 123 456 78 90</p>
+  <a href="mailto:project@politech.ru" class="btn" >Написать нам</a>
+  <a href="index.html#festival" class="btn">На главную</a>
+</section>
+<!-- Подключение библиотеки PDF.js -->
+<script src="https://mozilla.github.io/pdf.js/build/pdf.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+<script>
+  pdfjsLib = window['pdfjs-dist/build/pdf'];
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js';
+
+  let pdfDoc = null;
+  let currentPage = 1;
+  const canvas = document.getElementById('pdf-canvas');
+  const ctx = canvas.getContext('2d');
+  const prevBtn = document.getElementById('btn-prev-page');
+  const nextBtn = document.getElementById('btn-next-page');
+
+  function renderPage(num) {
+    pdfDoc.getPage(num).then(page => {
+      const viewport = page.getViewport({ scale: 1.2 });
+      canvas.height = viewport.height;
+      canvas.width = viewport.width;
+      const renderContext = {
+        canvasContext: ctx,
+        viewport: viewport
+      };
+      page.render(renderContext);
+    });
+  }
+
+  pdfjsLib.getDocument('/site/pdf/presentation.pdf').promise
+  .then(pdf => {
+    pdfDoc = pdf;
+    renderPage(currentPage);
+  })
+  .catch(error => {
+    console.error('Ошибка загрузки PDF:', error);
+    alert('Ошибка при загрузке PDF: ' + error.message);
+  });
+
+  prevBtn.addEventListener('click', () => {
+    if (currentPage <= 1) return;
+    currentPage--;
+    renderPage(currentPage);
+  });
+
+  nextBtn.addEventListener('click', () => {
+    if (currentPage >= pdfDoc.numPages) return;
+    currentPage++;
+    renderPage(currentPage);
+  });
+</script>
+
+</body>
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-column">
+      <h4>О проекте</h4>
+      <p>Наша миссия — способствовать развитию международных связей, укреплять репутацию российского образования и культуры на мировой арене, в том числе через участие иностранных студентов.</p>
+    </div>
+
+    <div class="footer-column">
+      <h4>Навигация</h4>
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="about.html">О проекте</a></li>
+        <li><a href="team.html">Участники</a></li>
+        <li><a href="journal.html">Журнал</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h4>Контакты</h4>
+      <p>Email: info@exportmoscow.ru</p>
+      <p>Телефон: +7 (495) 123-45-67</p>
+      <p>© 2025 Проектная деятельность</p>
+    </div>
+  </div>
+</footer>
+</html>

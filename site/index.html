@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проектная практика</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/site/css/style.css">
+    <style>
+        header {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+  <header> 
+       <video autoplay muted loop class="video-background">
+        <source src="/site/img/пд испр (1) (online-video-cutter.com) (1).mp4" type="video/mp4">
+        <!-- Можно добавить другие форматы для совместимости -->
+        <!-- <source src="your-video-file.webm" type="video/webm"> -->
+        Ваш браузер не поддерживает видео.
+    </video>
+    <div class="overlay"></div>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="about.html">О проекте</a>
+      <a href="team.html">Участники</a>
+      <a href="journal.html">Журнал</a>
+    </nav>
+  
+    <div class="header-content">
+      <h1>СТРАТЕГИЧЕСКИЙ ПРОЕКТ.<br>ПОВЫШЕНИЕ ЭКСПОРТНОГО ПОТЕНЦИАЛА</h1>
+      <p>Проект направлен на повышение экспортного потенциала с акцентом на культурное и образовательное сотрудничество, развитие международных образовательных программ и культурных обменов, а также продвижение русского языка и культуры за рубежом.</p>
+      <a href="about.html" class="btn">Узнать больше</a>
+      <a href="festival.html" class="btn">Фестиваль «Душа моя – Россия»</a>
+    </div>
+  </header>
+</body>
+<footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-column">
+      <h4>О проекте</h4>
+      <p>Наша миссия — способствовать развитию международных связей, укреплять репутацию российского образования и культуры на мировой арене, в том числе через участие иностранных студентов.</p>
+    </div>
+    <div class="footer-column">
+      <h4>Навигация</h4>
+      <ul>
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="about.html">О проекте</a></li>
+        <li><a href="team.html">Участники</a></li>
+        <li><a href="journal.html">Журнал</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>Контакты</h4>
+      <p>Email: info@exportmoscow.ru</p>
+      <p>Телефон: +7 (495) 123-45-67</p>
+      <p>© 2025 Проектная деятельность</p>
+    </div>
+  </div>
+</footer>
+</html>
